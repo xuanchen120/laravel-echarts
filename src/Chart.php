@@ -1,6 +1,6 @@
 <?php
 
-namespace Ding\LaravelECharts;
+namespace XuanChen\LaravelECharts;
 
 class Chart
 {
@@ -107,8 +107,8 @@ class Chart
     {
         if (! $data) {
             $this->option['tooltip'] = [
-                'trigger'     => 'axis',
-                
+                'trigger' => 'axis',
+
             ];
         } else {
             $this->option['tooltip'] = $data;

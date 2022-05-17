@@ -1,6 +1,6 @@
 <?php
 
-namespace Ding\LaravelECharts;
+namespace XuanChen\LaravelECharts;
 
 use Illuminate\Support\Facades\Facade as BaseFacade;
 
