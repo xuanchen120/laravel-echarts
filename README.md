@@ -5,14 +5,13 @@ Build ECharts using laravel
 ## Install
 
 ```
-composer require ding/laravel-echarts
+composer require xuanchen/laravel-echarts
 ```
-
-
 
 ## Usage
 
 In your php file or block:
+
 ```php
 $chart = app('chart')->locale('ZH')
     ->addSeries([
