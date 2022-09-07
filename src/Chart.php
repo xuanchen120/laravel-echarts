@@ -36,10 +36,20 @@ class Chart
 
     public function title($title)
     {
-        $this->option['title'] = [
-            'text' => $title
-        ];
+        if (is_string($title)) {
+            $this->option['title'] = [
+                'text' => $title
+            ];
+        } else {
+            $this->option['title'] = $title;
+        }
 
+        return $this;
+    }
+
+    public function dataZoom($dataZoom)
+    {
+        $this->option['dataZoom'] = $dataZoom;
         return $this;
     }
 
@@ -47,12 +57,12 @@ class Chart
     {
         if (is_bool($legend)) {
             $this->autoLegend = $legend;
+        } elseif (is_string($legend)) {
+            $this->option['legend'] = [
+                'data' => $legend
+            ];
         } else {
-            if (is_array($legend)) {
-                $this->option['legend'] = [
-                    'data' => $legend,
-                ];
-            }
+            $this->option['legend'] = $legend;
         }
 
         return $this;
@@ -259,7 +269,9 @@ class Chart
                 }
             }
 
-            $this->legend($legend->toArray());
+            $this->legend([
+                'data' => $legend->toArray()
+            ]);
         }
 
         return $this->option;
