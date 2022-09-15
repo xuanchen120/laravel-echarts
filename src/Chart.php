@@ -309,6 +309,11 @@ class Chart
     public function render()
     {
         $option = $this->formatOption();
+        if (empty($option['xAxis'][0]['data'])) {
+            unset($option['xAxis']);
+            unset($option['yAxis']);
+        }
+
 
         return view('echarts::chart', [
             'element'  => $this->element,
